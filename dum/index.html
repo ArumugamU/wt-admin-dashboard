@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    
+    <!-- FA -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- style -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+
+    <!-- sidebar -->
+
+
+
+
+
+    <title>Witmer Admin Dashboard</title>
+
+</head>
+
+<body>
+
+    <section>
+
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/wtlogo.png" alt="" srcset="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+                    aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarsExample09">
+
+
+                </div>
+            </nav>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10"
+                    aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+            </nav>
+
+            <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30"
+                        class="d-inline-block align-top" alt="">
+                    <span class="menu-collapsed">My Bar</span>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+
+                        <!-- This menu is hidden in bigger devices with d-sm-none. 
+                             The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
+                        <li class="nav-item dropdown d-sm-block d-md-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Menu
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="smallerscreenmenu">
+                                <a class="dropdown-item" href="#">Dashboard</a>
+                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="#">Tasks</a>
+                                <a class="dropdown-item" href="#">Etc ...</a>
+                            </div>
+                        </li><!-- Smaller devices menu END -->
+
+                    </ul>
+                </div>
+            </nav><!-- NavBar END -->
+
+
+            <!-- Bootstrap row -->
+            <div class="row" id="body-row">
+                <!-- Sidebar -->
+                <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+                    <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+                    <!-- Bootstrap List Group -->
+                    <ul class="list-group">
+                       
+                        <!-- Menu with submenu -->
+                        <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
+                            class=" text-dark list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-start align-items-center">
+                                <span class="fa fa-dashboard fa-fw mr-3"></span>
+                                <span class="menu-collapsed">Dashboard</span>
+                                <span class="submenu-icon ml-auto"></span>
+                            </div>
+                        </a>
+                        <!-- Submenu content -->
+                        <div id='submenu1' class="collapse sidebar-submenu">
+                            <a href="#" class="list-group-item list-group-item-action text-dark">
+                                <span class="menu-collapsed">Charts</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action text-dark">
+                                <span class="menu-collapsed">Reports</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action text-dark">
+                                <span class="menu-collapsed">Tables</span>
+                            </a>
+                        </div>
+                        <a href="#submenu2" data-toggle="collapse" aria-expanded="false"
+                            class="  text-dark list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-start align-items-center">
+                                <span class="fa fa-user fa-fw mr-3"></span>
+                                <span class="menu-collapsed">Profile</span>
+                                <span class="submenu-icon ml-auto"></span>
+                            </div>
+                        </a>
+                        <!-- Submenu content -->
+                        <div id='submenu2' class="collapse sidebar-submenu">
+                            <a href="#" class="list-group-item list-group-item-action text-dark">
+                                <span class="menu-collapsed">Settings</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action text-dark">
+                                <span class="menu-collapsed">Password</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action text-dark">
+                                <span class="menu-collapsed">Password</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action text-dark">
+                                <span class="menu-collapsed">Password</span>
+                            </a>
+                        </div>
+
+                        <!-- Separator with title -->
+
+                        <!-- /END Separator -->
+
+                        <!-- Separator without title -->
+                        <li class="list-group-item sidebar-separator menu-collapsed"></li>
+                        <!-- /END Separator -->
+
+                        <!-- Logo -->
+                        <li class="list-group-item logo-separator d-flex justify-content-center">
+                            <img src='https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg' width="30"
+                                height="30" />
+                        </li>
+                    </ul><!-- List Group END-->
+                </div><!-- sidebar-container END -->
+
+                <!-- MAIN -->
+
+
+            </div><!-- body-row END -->
+
+        </div>
+    </section>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Hide submenus
+        $('#body-row .collapse').collapse('hide');
+
+        // Collapse/Expand icon
+        $('#collapse-icon').addClass('fa-angle-double-left');
+
+        // Collapse click
+        $('[data-toggle=sidebar-colapse]').click(function () {
+            SidebarCollapse();
+        });
+
+        function SidebarCollapse() {
+            $('.menu-collapsed').toggleClass('d-none');
+            $('.sidebar-submenu').toggleClass('d-none');
+            $('.submenu-icon').toggleClass('d-none');
+            $('#sidebar-container').toggleClass('sidebar-expanded sidebar-collapsed');
+
+            // Treating d-flex/d-none on separators with title
+            var SeparatorTitle = $('.sidebar-separator-title');
+            if (SeparatorTitle.hasClass('d-flex')) {
+                SeparatorTitle.removeClass('d-flex');
+            } else {
+                SeparatorTitle.addClass('d-flex');
+            }
+
+            // Collapse/Expand icon
+            $('#collapse-icon').toggleClass('fa-angle-double-left fa-angle-double-right');
+        }
+    </script>
+</body>
+
+</html>

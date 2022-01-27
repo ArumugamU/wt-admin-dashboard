@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witmer Admin Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- FA -->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <link href="/css/jquery.treeSelection.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+
+    <!-- sidebar -->
+
+    <style>
+     .domain-table  tr {
+   line-height: 55px;
+   min-height: 55px;
+   height: 55px;
+}
+.btn-outline-success:not(:disabled):not(.disabled):active
+ {
+
+    background-color: #263a5be6;
+    color: #fff;
+}
+.btn-add-domain
+{
+    padding: 7px 10px;
+    border-radius: 10px;
+    width: 20%;
+}
+
+.table-bordered thead td  {
+    border-bottom-width: 2px;
+    font-size: 12px;
+    font-weight: 600;
+}
+    </style>
+
+
+</head>
+
+<body>
+
+    <section>
+
+        <!-- HEADER -->
+        <div class="sticky-header">
+            <header class="pt-3 mb-3 bg-light border-bottom ">
+                <div class="container-fluid">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between ">
+                        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none logo">
+                            <img src="/images/wtlogo.png" alt="" srcset="">
+                        </a>
+
+                        <div class="  text-end ms-auto">
+
+                            <ul class=" text-small" aria-labelledby="dropdownUser1" style="list-style-type: none;">
+                                <li> <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;
+                                    <a class=" text-decoration-none list user-name" href="#"><b>John</b></a>
+                                </li>
+                                <li><a class=" text-decoration-none user-role" href="#"><small>Admin</small></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <!-- HEADER -->
+
+
+
+        <div class="page-wrapper chiller-theme toggled">
+            <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+                <i class="fas fa-bars"></i>
+            </a>
+
+            <!-- sidebar-wrapper  -->
+
+            <nav id="sidebar" class="sidebar-wrapper">
+                <div class="sidebar-content">
+
+                    <div class="sidebar-menu">
+                        <ul>
+
+                            <li class=" ">
+                                <a href="#">
+
+                                    <span> User Management</span>
+
+                                </a>
+
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+
+                                    <span>Content Management</span>
+
+                                </a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Domain
+
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Sub Domain</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Tags</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Intervention</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Intervention Plan</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Questionnaire</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Screener</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+                    <!-- sidebar-menu  -->
+                </div>
+                <!-- sidebar-content  -->
+
+            </nav>
+
+            <!-- sidebar-wrapper  -->
+
+
+            <main class="page-content">
+                <div class="container-fluid">
+
+                    <div class="row ">
+
+                        <div class="col-md-6 mb-3">
+                            <b class="float-start"> TAGS </b>
+                        </div>
+
+                        <div class="col-md-6  mb-3 d-flex justify-content-end">
+                            <button type="button" class="btn btn-outline-success " type="button" class="btn btn-primary" data-toggle="modal" data-target="#tag-cms-modal"><i class="fa fa-plus" aria-hidden="true"></i> Create Tag</button>
+                        </div>
+
+                           <!-- Table -->
+                           <div class="col-md-12">
+                            <div class="table-responsive ">
+                                <table class="table tag-table table-bordered">
+                                    <thead>
+                                        <tr class=" ">  
+                                            <td class="col-sm-2">Tag Name</td>
+                                            <td class="col-sm-4">Description </td>
+                                            <td class="col-sm-3">Status</td>
+                                            <td class="col-sm-3">Action</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-sm-2">Mindfulness</th>
+                                            <td> </td>
+                                            <td>Activated </td>
+                                            <td><i class="fas fa-edit  ml-5" id="eidt-domain"></i></td>
+                                        </tr>
+                                        
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Table -->
+
+                    </div>
+                    <!-- row -->
+
+
+                    <!-- Navigation -->
+                    <nav aria-label="Page navigation ">
+                        <ul class="pagination justify-content-center  ">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- Navigation END-->
+
+                    <!-- Modal -->
+                <div class="modal fade" id="tag-cms-modal" tabindex="-1" role="dialog" aria-labelledby="tag-cms-modalTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Tags</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form class="tag-form">
+                                <div class="form-group d-flex">
+                                  <label for="tag-name" class="col-md-4">Tag Name</label>
+                                  <input type="text" class="form-control col-md-6" id="recipient-name">
+                                </div>
+                                <div class="form-group d-flex">
+                                  <label for="tag-text" class="col-md-4">Description</label>
+                                  <textarea class="form-control col-md-6" id="tag-text"></textarea>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-outline-success btn-sm float-right btn-add-domain">Create</button>
+                              </form>
+                            </div>
+                            
+                          </div>
+                    </div>
+                </div>
+
+
+                </div>
+                <!-- Container fluid -->
+            </main>
+            <!-- page-content" -->
+        </div>
+
+
+
+
+
+
+    </section>
+
+    <script>
+        jQuery(function ($) {
+
+            $(".sidebar-dropdown > a").click(function () {
+                $(".sidebar-submenu").slideUp(200);
+                if (
+                    $(this)
+                        .parent()
+                        .hasClass("active")
+                ) {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .parent()
+                        .removeClass("active");
+                } else {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .next(".sidebar-submenu")
+                        .slideDown(200);
+                    $(this)
+                        .parent()
+                        .addClass("active");
+                }
+            });
+
+            $("#close-sidebar").click(function () {
+                $(".page-wrapper").removeClass("toggled");
+            });
+            $("#show-sidebar").click(function () {
+                $(".page-wrapper").addClass("toggled");
+            });
+
+
+
+
+        });
+
+    </script>
+
+
+    <script>
+        $('#enableselect').click(function () {
+            $('#mainform input[name=animal]')
+                .attr("disabled", true);
+
+            $('#animal-select')
+                .attr('disabled', false)
+                .attr('name', 'animal');
+
+            $('#enableselect').hide();
+            return false;
+        });
+    </script>
+
+    <script src="/js/jquery.treeSelection.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+</body>
+
+</html>

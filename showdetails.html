@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witmer Admin Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- FA -->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <link href="/css/jquery.treeSelection.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+
+    <!-- sidebar -->
+
+    <style>
+
+.view input , select , option{
+  border:0;
+  background-color:unset !important;
+  outline:none !important;
+}
+
+.view select
+{
+    appearance:none;
+}
+    </style>
+
+
+</head>
+
+<body>
+
+    <section>
+
+        <div class="sticky-header">
+            <header class="pt-3 mb-3 bg-light border-bottom ">
+                <div class="container-fluid">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between ">
+                        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none logo">
+                            <img src="/images/wtlogo.png" alt="" srcset="">
+                        </a>
+
+                        <div class="  text-end ms-auto">
+
+                            <ul class=" text-small" aria-labelledby="dropdownUser1" style="list-style-type: none;">
+                                <li> <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;
+                                    <a class=" text-decoration-none list user-name" href="#"><b>John</b></a>
+                                </li>
+                                <li><a class=" text-decoration-none user-role" href="#"><small>Admin</small></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+
+
+        <div class="page-wrapper chiller-theme toggled">
+            <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+                <i class="fas fa-bars"></i>
+            </a>
+
+                  <!-- sidebar-wrapper  -->
+
+                  <nav id="sidebar" class="sidebar-wrapper">
+                    <div class="sidebar-content">
+    
+                        <div class="sidebar-menu">
+                            <ul>
+    
+                                <li class=" ">
+                                    <a href="#">
+    
+                                        <span> User Management</span>
+    
+                                    </a>
+    
+                                </li>
+                                <li class="sidebar-dropdown">
+                                    <a href="#">
+    
+                                        <span>Content Management</span>
+    
+                                    </a>
+                                    <div class="sidebar-submenu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Domain
+    
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Sub Domain</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Tags</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Intervention</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Intervention Plan</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Questionnaire</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Screener</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+    
+    
+    
+                            </ul>
+                        </div>
+                        <!-- sidebar-menu  -->
+                    </div>
+                    <!-- sidebar-content  -->
+    
+                </nav>
+                <!-- sidebar-wrapper  -->
+
+
+            <main class="page-content">
+                <div class="container-fluid">
+
+                    <div class="row ">
+
+                        <form class="col-md-8 view" id="mainform">
+                            <!-- <h5 class="modal-title text-center">Invite Users</h5> -->
+                            <div class="form-group d-flex flex-column">
+                                <p for="user-name" class=" user-name-readonly mb-0 "> <b>
+                                    Name2's
+                                   details</b> <i class="fas fa-edit ml-5"></i></p>
+                            <p class=" user-email-readonly mb-0">
+                                <input type="text" class="" id="user-name" value="Name2@gmail.com" readonly>                                 
+                              </p>
+                            <p class=" user-status-readonly mb-0">
+                                <input type="text" class="" id="user-status"  value="Deactivated" readonly> 
+                            </p>                                  
+                            </div>
+
+                            <div class="form-group d-flex flex-column">
+                                <p class="modal-sub-title font-weight-bold text-uppercase" >Roles 
+                                    <i class="fas fa-edit  ml-5" id="enableselect">
+
+                                    </i>
+                                </p>
+                                <!-- <label for="domain" class="col-form-label" readonly>Content Reviewer</label>
+                                <label for="subdomain" class="col-form-label" readonly>Stress</label>
+                                <label for="add" type="button" class="col-form-label  readonly"> </label> -->
+                                   
+                                        
+                                 
+                        <div class="role-wrapper d-flex">
+                            <div class="form-group  mr-3">
+                                    <select name="mySelect2"  id="animal-select" disabled="true" class=""
+                                        id="assign-roles" disabled="true">>
+                                    <option value="Content Reviewer" >Content Reviewer</option>
+                                    <option value="Content Reviewer">Content Approver</option>
+                                    </select>
+                                    <!-- <input type="hidden" name="animal" value="cat"/> -->
+                            </div>
+                            <div class="form-group  mr-3">
+                                <select name="mySelect1" class=""
+                                    id="assign-subdomain-roles" disabled="true">>
+                                    <option value="Content Reviewer">Stress</option>
+                                    <option value="Content Reviewer">Anxiety</option>
+                                </select>
+                                
+                            </div>
+                        </div>
+
+
+                            </div>
+
+
+
+                            <div class="assign-wrapper d-flex flex-column  ">
+                                <!-- <div class="form-group">
+                                    <label for="assign-roles" class="col-form-label">Assign
+                                        Role</label>
+                                    <select name="mySelect2" class="custom-select"
+                                        id="assign-roles" readonly>
+                                        <option value="Content Reviewer" >Content Reviewer</option>
+                                        <option value="Content Reviewer">Content Approver</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="assign-roles" class="col-form-label">Sub
+                                        Domain</label>
+                                    <select name="mySelect1" class="custom-select"
+                                        id="assign-subdomain-roles" readonly>
+                                        <option value="Content Reviewer">Stress</option>
+                                        <option value="Content Reviewer">Anxiety</option>
+                                    </select>
+
+                                </div> -->
+                                <p class="modal-sub-title font-weight-bold text-uppercase">action history</p>
+
+                            <div class="form-group">
+                            <div class="table-responsive ">
+                                <table class="table   table-borderless">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col-3" class="w-25">Action</th>
+                                        <th scope="col" class="w-25">Time</th>
+                                        
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td scope="row">Changed Name in Screener</td>
+                                        <td>12.30</td>
+                                        
+                                      </tr>
+                                       
+                                    </tbody>
+                                  </table> 
+                                </div>
+                                  
+                            </div>
+
+
+
+                            </div>
+                             
+
+                        </form>
+
+
+
+
+
+
+                    </div>
+
+
+
+                    <!-- Navigation -->
+                    <nav aria-label="Page navigation ">
+                        <ul class="pagination justify-content-center  ">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- Navigation END-->
+
+
+
+                </div>
+            </main>
+            <!-- page-content" -->
+        </div>
+
+
+
+
+
+
+    </section>
+
+    <script>
+        jQuery(function ($) {
+    
+    $(".sidebar-dropdown > a").click(function() {
+    $(".sidebar-submenu").slideUp(200);
+    if (
+    $(this)
+      .parent()
+      .hasClass("active")
+    ) {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .parent()
+      .removeClass("active");
+    } else {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .next(".sidebar-submenu")
+      .slideDown(200);
+    $(this)
+      .parent()
+      .addClass("active");
+    }
+    });
+    
+    $("#close-sidebar").click(function() {
+    $(".page-wrapper").removeClass("toggled");
+    });
+    $("#show-sidebar").click(function() {
+    $(".page-wrapper").addClass("toggled");
+    });
+    
+    
+    
+    
+    });
+    
+        </script>
+    
+    
+    <script>
+        $('#enableselect').click(function() {
+    $('#mainform input[name=animal]')
+        .attr("disabled", true);
+    
+    $('#animal-select')
+        .attr('disabled', false)
+    	.attr('name', 'animal');
+    
+    $('#enableselect').hide();
+    return false;
+});
+    </script>
+
+    <script src="/js/jquery.treeSelection.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+</body>
+
+</html>

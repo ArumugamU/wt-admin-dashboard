@@ -1,0 +1,7 @@
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+.navbar-brand img {
+  max-width: 120px;
+}

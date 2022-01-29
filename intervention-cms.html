@@ -25,9 +25,26 @@
 
     <style>
      .domain-table  tr {
-   line-height: 55px;
+   /* line-height: 55px;
    min-height: 55px;
-   height: 55px;
+   height: 55px; */
+}
+
+.domain-table td, .domain-table th {
+    border: none;
+}
+.domain-table > thead td
+{
+    font-size: 12px;
+    text-transform: capitalize;
+
+}
+
+.domain-table td
+{
+    font-size: 14px;
+    text-transform: capitalize;
+
 }
 .btn-outline-success:not(:disabled):not(.disabled):active
  {
@@ -87,6 +104,12 @@
 {
     display: none;
 }
+
+.modal-header .close
+{
+    margin:unset;
+}
+ 
 
 @media (min-width: 576px)
 {
@@ -206,11 +229,11 @@
                     <div class="row ">
 
                         <div class="col-md-6 mb-3">
-                            <h5 class="float-start"> INTERVENTION </h5>
+                            <h5 class="float-start"> Intervention </h5>
                         </div>
 
                         <div class="col-md-6  mb-3 d-flex justify-content-end">
-                            <button type="button" class="btn btn-outline-success " ype="button" class="btn btn-primary" data-toggle="modal" data-target="#addSubDomain"><i class="fa fa-plus" aria-hidden="true"></i> Intervention</button>
+                            <button type="button" class="btn btn-outline-success " ype="button" class="btn btn-primary" data-toggle="modal" data-target="#addSubDomain">Intervention</button>
                         </div>
 
                            <!-- Table -->
@@ -271,17 +294,17 @@
                     <!-- Navigation END-->
 
                     <!-- Modal -->
-                <div class="modal fade" id="addSubDomain" tabindex="-1" role="dialog" aria-labelledby="addSubDomainTitle"
-                    aria-hidden="true">
+                <div class="modal fade page-model modal-fullscreen" tabindex="-1" role="dialog" id="addSubDomain" >
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">ADD INTERVENTION</h5>
+                              <!-- <h5 class="modal-title" id="exampleModalLabel">Add Intervention</h5> -->
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
                             <div class="modal-body">
+                                <h5 class="modal-title text-center mb-3" id="exampleModalLabel">Create Intervention</h5>
                               <form class="intervention-form">
                                 <div class="form-group d-flex">
                                   <label for="intervention-name" class="col-md-3 ">Name</label>

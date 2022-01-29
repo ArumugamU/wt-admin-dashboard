@@ -209,6 +209,72 @@
 {
     background-color: rgb(235, 236, 240); 
 }
+
+.form-control
+{
+    color: #172b4d;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    background-color: #f4f5f7;
+    border: 1px solid #dfe1e6;
+    padding: 4px 7px 5px;
+}
+
+
+#addSubDomain input[type=text]:focus, 
+#addSubDomain textarea:focus, 
+#addSubDomain select:focus 
+
+{
+    background-color: #fff;
+    border: 1px solid #4c9aff;
+    outline: 0;
+    box-shadow: 0 0 0 1px #4c9aff;
+}
+
+#addSubDomain label
+{
+    color: #5e6c84;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    float: none;
+    margin: 0 16px 0 0;
+    display: block;
+    text-align: left;
+    width: auto;
+    padding: unset;
+}
+
+.modal-header .close
+{
+    padding: unset;
+
+}
+
+
+.modal-title  h5 {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.modal-header 
+{
+    border: unset;
+    padding: 0.8rem;
+}
+
+.modal-body
+{
+    padding: 0.8rem;
+}
     </style>
 
 
@@ -378,32 +444,32 @@
                     <!-- Navigation END-->
 
                     <!-- Modal -->
-                <div  id="addSubDomain" class="modal fade page-model modal-fullscreen" tabindex="-1" role="dialog">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
+                <div  id="addSubDomain" class="modal fade page-model " tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                              <!-- <h5 class="modal-title" id="exampleModalLabel">Sub Domain</h5> -->
+                              <h5 class="modal-title" id="exampleModalLabel">Sub Domain</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
                             <div class="modal-body">
+                                <!-- <h5 class="modal-title text-center" id="exampleModalLabel">Sub Domain</h5> -->
 
                                 <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-8">
-                                          <h5 class="modal-title text-center" id="exampleModalLabel">Sub Domain</h5>
+                                    <div class="row  ">
+                                        <div class="col-md-12">
                             
                                 <form class="mt-3">
-                                <div class="form-group d-flex">
+                                <div class="form-group  ">
                                   <label for="subdomain-name" class="col-md-4 ">Name</label>
                                   <input type="text" class="form-control" id="subdomain-name">
                                 </div>
-                                <div class="form-group d-flex">
+                                <div class="form-group  ">
                                   <label for="subdomain-text" class="col-md-4 ">Description</label>
                                   <textarea class="form-control" id="subdomain-text"></textarea>
                                 </div>
-                                <div class="form-group d-flex">
+                                <div class="form-group  ">
                                     <label for="subdomain-text" class="col-md-4 ">Domains</label>
                                     <select name="sd-domains"  id="sd-domains-select" class="form-control "
                                                 id="assign-roles">
@@ -411,7 +477,7 @@
                                             <option value="Anxiety">Anxiety</option>
                                         </select>
                                   </div>
-                                  <div class="form-group d-flex">
+                                  <div class="form-group  ">
                                     <label for="subdomain-img" class="col-md-4 ">Image</label>
                                     <div class="">
                                         <!-- <div class="imgMask">
@@ -464,12 +530,6 @@
             </main>
             <!-- page-content" -->
         </div>
-
-
-
-
-
-
     </section>
 
 

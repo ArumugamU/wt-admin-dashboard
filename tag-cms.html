@@ -47,6 +47,24 @@
     font-size: 12px;
     font-weight: 600;
 }
+
+
+.table-bordered td, .table-bordered th {
+    border: none;
+}
+.table-bordered > thead td
+{
+    font-size: 12px;
+    text-transform: capitalize;
+
+}
+
+.table-bordered td
+{
+    font-size: 14px;
+    text-transform: capitalize;
+
+}
     </style>
 
 
@@ -157,11 +175,11 @@
                     <div class="row ">
 
                         <div class="col-md-6 mb-3">
-                            <b class="float-start"> TAGS </b>
+                            <b class="float-start"> Tags </b>
                         </div>
 
                         <div class="col-md-6  mb-3 d-flex justify-content-end">
-                            <button type="button" class="btn btn-outline-success " type="button" class="btn btn-primary" data-toggle="modal" data-target="#tag-cms-modal"><i class="fa fa-plus" aria-hidden="true"></i> Create Tag</button>
+                            <button type="button" class="btn btn-outline-success " type="button" class="btn btn-primary" data-toggle="modal" data-target="#tag-cms-modal">  Create Tag</button>
                         </div>
 
                            <!-- Table -->
@@ -215,28 +233,36 @@
                     <!-- Navigation END-->
 
                     <!-- Modal -->
-                <div class="modal fade" id="tag-cms-modal" tabindex="-1" role="dialog" aria-labelledby="tag-cms-modalTitle"
+                <div class="modal fade page-model modal-fullscreen" tabindex="-1" role="dialog" id="tag-cms-modal" tabindex="-1" role="dialog" aria-labelledby="tag-cms-modalTitle"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Tags</h5>
+                              <!-- <h5 class="modal-title" id="exampleModalLabel">Tags</h5> -->
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
                             <div class="modal-body">
-                              <form class="tag-form">
-                                <div class="form-group d-flex">
-                                  <label for="tag-name" class="col-md-4">Tag Name</label>
-                                  <input type="text" class="form-control col-md-6" id="recipient-name">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6">
+                                            <h5 class="modal-title text-center mb-3" id="exampleModalLabel">Tags</h5>
+                                                <form class="tag-form">
+                                                <div class="form-group d-flex">
+                                                <label for="tag-name" class="col-md-4">Tag Name</label>
+                                                <input type="text" class="form-control col-md-6" id="recipient-name">
+                                                </div>
+                                                <div class="form-group d-flex">
+                                                <label for="tag-text" class="col-md-4">Description</label>
+                                                <textarea class="form-control col-md-6" id="tag-text"></textarea>
+                                                </div>
+                                                <button type="button" class="btn btn-primary btn-outline-success btn-sm float-right btn-add-domain">Create</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group d-flex">
-                                  <label for="tag-text" class="col-md-4">Description</label>
-                                  <textarea class="form-control col-md-6" id="tag-text"></textarea>
-                                </div>
-                                <button type="button" class="btn btn-primary btn-outline-success btn-sm float-right btn-add-domain">Create</button>
-                              </form>
+
                             </div>
                             
                           </div>

@@ -229,6 +229,7 @@ body {
   text-decoration: none;
   position: relative;
   padding: 8px 30px 8px 20px;
+  margin-bottom: 5px;
 }
 
 .sidebar-wrapper .sidebar-menu ul li a i {
@@ -266,6 +267,7 @@ body {
 
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul {
   padding: 5px 0;
+  background-color: #162c4f0d;
 }
 
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li {
@@ -442,6 +444,7 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
 .chiller-theme .sidebar-footer > a {
   color: #818896;
+  font-size: 14px;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li:hover > a,
@@ -449,8 +452,9 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-header .user-info,
 .chiller-theme .sidebar-wrapper .sidebar-brand > a:hover,
 .chiller-theme .sidebar-footer > a:hover i {
-  color: #b8bfce;
+  color: #263a5be6;
 }
+
 
 .page-wrapper.chiller-theme.toggled #close-sidebar {
   color: #bdbdbd;

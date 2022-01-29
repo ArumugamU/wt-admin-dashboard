@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Witmer Admin Dashboard</title>
+    <title>Witmer || Domain V2.0 </title>
 
     <!-- Bootstrap core CSS -->
 
@@ -24,76 +24,135 @@
     <!-- sidebar -->
 
     <style>
-
-.form-control
-{
-    color: #172b4d;
-    font-size: 14px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 20px;
-    background-color: #f4f5f7;
-    border: 1px solid #dfe1e6;
-    padding: 4px 7px 5px;
-    height: 35px;
+     .domain-table  tr {
+   /* line-height: 55px;
+   min-height: 55px;
+   height: 55px; */
 }
 
-#addInterventionPlan label
+.domain-table tr:hover
 {
-    color: #5e6c84;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 16px;
-    float: none;
-    margin: 0 16px 0 0;
-    display: block;
-    text-align: left;
-    width: auto;
-    padding: unset;
+    background-color: rgb(235, 236, 240); 
 }
 
-#addInterventionPlan input[type=text]:focus,
-#addInterventionPlan input[type=radio]:focus,
-#addInterventionPlan textarea:focus,
-#addInterventionPlan select:focus
-
-{
-    background-color: #fff;
-    border: 1px solid #4c9aff;
-    outline: 0;
-    box-shadow: 0 0 0 1px #4c9aff;
-}
-
-
-.table-bordered td, .table-bordered th {
+.table-borderless td, .table-borderless th {
     border: none;
 }
-.table-bordered > thead td
+.table > thead td
 {
     font-size: 12px;
     text-transform: capitalize;
 
 }
 
-.table-bordered td
+.table td
 {
     font-size: 14px;
     text-transform: capitalize;
 
 }
+.btn-outline-success:not(:disabled):not(.disabled):active
+ {
 
-.table-bordered td a:hover
+    background-color: #263a5be6;
+    color: #fff;
+    border-radius: 7px;
+    border-color: #263a5be6;
+}
+.btn-add-domain
 {
-    text-decoration: none;
+    padding: 7px 10px;
+    border-radius: 10px;
+    width: 20%;
 }
 
-@media (min-width: 576px)
+.sidebar-menu ul li a:focus {
+  color: #263a5be6;
+}
+
+.modal-header .close
 {
-.modal-dialog {
-    max-width: 800px;
-    margin: 1.75rem auto;
+    margin:unset;
 }
+
+
+
+
+
+@media (max-width: 767px) {
+  .modal-fullscreen-xs-down {
+    padding: 0 !important;
+  }
+  .modal-fullscreen-xs-down .modal-dialog {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .modal-fullscreen-xs-down .modal-content {
+    height: auto;
+    min-height: 100%;
+    border: 0 none;
+    border-radius: 0;
+  }
 }
+@media (max-width: 991px) {
+  .modal-fullscreen-sm-down {
+    padding: 0 !important;
+  }
+  .modal-fullscreen-sm-down .modal-dialog {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .modal-fullscreen-sm-down .modal-content {
+    height: auto;
+    min-height: 100%;
+    border: 0 none;
+    border-radius: 0;
+  }
+}
+@media (max-width: 1199px) {
+  .modal-fullscreen-md-down {
+    padding: 0 !important;
+  }
+  .modal-fullscreen-md-down .modal-dialog {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .modal-fullscreen-md-down .modal-content {
+    height: auto;
+    min-height: 100%;
+    border: 0 none;
+    border-radius: 0;
+  }
+}
+.modal-fullscreen {
+  padding: 0 !important;
+}
+.modal-fullscreen .modal-dialog {
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.modal-fullscreen .modal-content {
+  height: auto;
+  min-height: 100%;
+  border: 0 none;
+  border-radius: 0;
+}
+
+
+
+
     </style>
 
 
@@ -159,7 +218,7 @@
                                 <div class="sidebar-submenu">
                                     <ul>
                                         <li>
-                                            <a href="#">Domain
+                                            <a href="#" class="active">Domain
 
                                             </a>
                                         </li>
@@ -204,38 +263,31 @@
                     <div class="row ">
 
                         <div class="col-md-6 mb-3">
-                            <b class="float-start"> Intervention Plan </b>
+                            <h5 class="float-start"> Domain </h5>
                         </div>
 
                         <div class="col-md-6  mb-3 d-flex justify-content-end">
-                            <button type="button" class="btn btn-outline-success " type="button" class="btn btn-primary" data-toggle="modal" data-target="#addInterventionPlan"> Intervention</button>
+                            <button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#domain-modal-fullscreen">Create Domain</button>
                         </div>
 
                            <!-- Table -->
                            <div class="col-md-12">
                             <div class="table-responsive ">
-                                <table class="table domain-table table-bordered">
+                                <table class="table domain-table table-borderless">
                                     <thead>
                                         <tr class=" ">
-                                            <td class="">Name</td>
-                                            <td class="">Sub -Domain Name </td>
-                                            <td class="">Intervention </td>
-                                            <td class="">Created By</td>
-                                            <td class="">Updated By</td>
-                                            <td class="">Status</td>
-                                            <td class="">Action</td>
+                                            <td class="col-sm-2">Domain Name</td>
+                                            <td class="col-sm-4">Description </td>
+                                            <td class="col-sm-3">Status</td>
+                                            <td class="col-sm-3">Action</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="col-sm-2">Plan1</th>
-                                            <td>Stress </td>
-                                            <td> Plan Game</td>
-                                            <td> Name1 Date & Time</td>
-                                            <td>Name1 Date & Time </td>
-                                            <td>Activated</td>
-                                            <td><a href="#" class="text-deceration-none s"> Show Details</a></td>
-                                             
+                                            <td class="col-sm-2">Stress</th>
+                                            <td> </td>
+                                            <td>Activated </td>
+                                            <td><i class="fas fa-edit  ml-5" id="eidt-domain"></i></td>
                                         </tr>
                                         
 
@@ -251,7 +303,7 @@
 
                     <!-- Navigation -->
                     <nav aria-label="Page navigation ">
-                        <ul class="pagination justify-content-center  ">
+                        <ul class="pagination d-flex justify-content-end  ">
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
@@ -269,84 +321,37 @@
                     <!-- Navigation END-->
 
                     <!-- Modal -->
-                <div class="modal fade" id="addInterventionPlan" tabindex="-1" role="dialog" aria-labelledby="addInterventionPlanTitle"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
+                <div id="domain-modal-fullscreen" class="modal fade page-model" tabindex="-1" role="dialog"> 
+                    
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Create Intervention Plan</h5>
+                              <!-- <h5 class="modal-title" id="exampleModalLabel">Domain</h5> -->
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
                             <div class="modal-body">
-                              <form class="intervention-form">
-                                <div class="form-group d-flex">
-                                  <label for="intervention-plan-name" class="col-md-3 ">Plan Name</label>
-                                  <input type="text" class="form-control col-md-3" id="intervention-plan-name">
-                                    <div class="form-group col-md-6">                                        
-                                        <!-- <label for="intervention" class="col-md-6  ">Data Type</label> -->
-                                        <select name="intervention"  id="intervention-select" class="form-control col-md-12   "
-                                                    id="assign-roles">
-                                                <option value="intervention1">Intervention 1 </option>
-                                                <option value=" intervention1">Intervention 2 </option>
-                                            </select>
-                                        
-                                    </div>
+                             <div class="container">
+                                 <div class="row justify-content-center">
+                                     <div class="col-md-10">
+                                        <h5 class="modal-title text-center" id="exampleModalLabel">Domain</h5>
+                                     
+                                <form>
+                                <div class="form-group">
+                                  <label for="recipient-name" class="col-form-label">Name</label>
+                                  <input type="text" class="form-control" id="recipient-name">
                                 </div>
-                                <div class="form-group d-flex">
-                                  <label for="intervention-plan-text" class="col-md-3 ">Intervention</label>
-                                  <textarea class="form-control col-md-3" id="intervention-plan-text"></textarea>
-                                  <div class="form-group col-md-6">
-                                    <input type="text" class="form-control col-md-12" id="intervention-plan-name" placeholder="Add instruction if any">
-                                                                         
-                                    
-                                    </div>
+                                <div class="form-group">
+                                  <label for="message-text" class="col-form-label">Description</label>
+                                  <textarea class="form-control" id="message-text"></textarea>
                                 </div>
-                                <div class="form-group d-flex">
-                                    <label for="intervention-type" class="col-md-3 ">Sub Domain</label>
-                                    <select name="sd-domains"  id="sd-domains-select" class="form-control col-md-3 "
-                                                id="assign-roles">
-                                            <option value="Select Type1 " >Select Type </option>
-                                            <option value=" Select Type2">Select Type </option>
-                                        </select>
-                                        <div class="form-group col-md-6">                                            
-                                             <input type="text" class="form-control col-md-12" id="intervention-plan-frequency" placeholder="frequency">                                                                                                                                
-                                        </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <label for="input-type">Score Range Based On (Single Select)</label>
-                                        <div id="input-type" class="row">
-                                            <div class="col-sm-6 d-flex">
-                                                <label class="radio-inline col-sm-8">
-                                                    Multi Dimensional Screener 
-                                                </label>
-                                                <input name="account_type"  class="col-sm-1" id="input-type-student" value="Student" type="radio" />
-                                            </div>
-                                            <div class="col-sm-6 d-flex">
-                                                <label class="radio-inline col-sm-8">
-                                                    Sub Domain Screener
-                                                </label>
-                                                <input name="account_type" class="col-sm-1" id="input-type-tutor" value="Tutor" type="radio" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group d-flex">                                 
-                                    <label for="intervention-plan-range-from" class="col-md-3 ">From</label>
-                                    <input type="text" class="form-control col-md-3" id="intervention-plan-range-from">
-                                    <div class="form-group  d-flex col-md-6">  
-                                        <label for="intervention-plan-range-to" class="col-md-6 ">To</label>
-                                         <input type="text" class="form-control col-md-6" id="intervention-plan-range-to">
-                            
-                                    </div>
-
-                                </div>
-
-
                                 <button type="button" class="btn btn-primary btn-outline-success btn-sm float-right btn-add-domain">Create</button>
                               </form>
+                            </div>
+                        </div>
+                    </div>
+                              
                             </div>
                             
                           </div>
@@ -366,7 +371,6 @@
 
 
     </section>
-
 
     <script>
         jQuery(function ($) {
@@ -421,8 +425,6 @@
             return false;
         });
     </script>
-
- 
 
     <script src="/js/jquery.treeSelection.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

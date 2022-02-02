@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Witmer || Intervention ShowDetails</title>
+    <title>Screener</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -110,11 +110,6 @@
     margin:unset;
 }
  
-.main
-{
-    max-height:initial !important;
-    height: auto;
-}
 
 @media (min-width: 576px)
 {
@@ -233,73 +228,75 @@
 
                     <div class="row ">
 
-                        <div class="col-md-9 mb-3 bg-secondary">
-                            <img src="/images/wtlogo.png" width = "100%">
-                             
+                        <div class="col-md-6 mb-3">
+                            <h5 class="float-start"> Screener</h5>
                         </div>
 
-                        <!-- <div class="col-md-3  mb-3 d-flex ">
-                            <img src="/images/wtlogo.png">
-                        </div> -->
-
-                        <div class="col-md-10 mb-3 d-flex">
-                            <div class="col-md-6 mb-3">
-                                <b class="float-start"> Plan Games </b>
-                                <p>Mindfulness</p>
-                            </div>
-                            <div class="col-md-6  mb-3 d-flex justify-content-end">
-                                <b>Status:</b> <span>Approved<i class="fas fa-edit ml-5"></i></span>
-                            </div>
+                        <div class="col-md-6  mb-3 d-flex justify-content-end">
+                            <button type="button" class="btn btn-outline-success " type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSubDomain">Create Screener</button>
                         </div>
 
-
-                         <div class="col-md-6  mb-3">
-                               <div class="imgMask">
-                                            <div class="imgMask-content">
-                                                +
-                                            </div>
-                                        </div> 
-                                         <input type="file" class="imgg" id="imgInp" name="files">
-                                        <img id="sub-domain-img" src="#" alt="." />  
-                             <b>Game Doc</b>
-                         </div>
-
-                         <div class="col-md-12  mb-3">
-                            <button type="button" class="btn btn-outline-success " type="button" class="btn btn-primary" > Intervention Edit History</button>     
-                            <button type="button" class="btn btn-outline-success " type="button" class="btn btn-primary" > Comments</button>     
-                        </div>
                            <!-- Table -->
                            <div class="col-md-12">
                             <div class="table-responsive ">
                                 <table class="table domain-table table-bordered">
                                     <thead>
                                         <tr class=" ">
+                                            <td class="">Name</td>
+                                            <td class="">Type  </td>
+                                            <td class="">Sub Domain</td>
+                                            <td class="">Status</td>
                                             <td class="">Action</td>
-                                            <td class="">Time </td>
-                                            <td class="">By </td>
-                                            
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="col-sm-2">Plane</th>
-                                            <td>Game </td>
-                                            <td> Game</td>
-                                                                                        
+                                            <td >Screener 1</th>
+                                            <td>Multidimensional Screener </td>
+                                            <td> -</td>
+                                            <td> Activated</td>
+                                            <td><a href="#"> Show Details</td>
+                                                                                          
+                                        </tr>
+                                        <tr>
+                                            <td >Stress Screens</th>
+                                            <td>Sub Domain Screens </td>
+                                            <td> -</td>
+                                            <td> Activated</td>
+                                            <td><a href="#" class="text-decoration-none"> Show Details</td>
+                                                                                          
                                         </tr>
                                         
 
                                     </tbody>
                                 </table>
                             </div>
-                         </div>
+                        </div>
                         <!-- Table -->
 
                     </div>
                     <!-- row -->
 
 
-                  
+                    <!-- Navigation -->
+                    <nav aria-label="Page navigation ">
+                        <ul class="pagination justify-content-center  ">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- Navigation END-->
 
                     <!-- Modal -->
                 <div class="modal fade page-model modal-fullscreen" tabindex="-1" role="dialog" id="addSubDomain" >
@@ -312,55 +309,93 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                                <h5 class="modal-title text-center mb-3" id="exampleModalLabel">Create Intervention</h5>
-                              <form class="intervention-form">
+                                <h5 class="modal-title text-center mb-3" id="exampleModalLabel">Create Screener</h5>
+                              <form class="screener-form">
+
                                 <div class="form-group d-flex">
-                                  <label for="intervention-name" class="col-md-3 ">Name</label>
-                                  <input type="text" class="form-control col-md-3" id="intervention-name">
-                                    <div class="input-group col-md-6">
-                                        <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile04">
-                                        <label class="custom-file-label" for="inputGroupFile04">Intervention Image <i class="fa fa-upload" aria-hidden="true"></i></label>
-                                        </div>
-                                        
+                                    <label for="question-text" class="col-md-3 ">Multidimensional</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Multidimensional</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">Other </label>
                                     </div>
                                 </div>
-                                <div class="form-group d-flex">
-                                  <label for="intervention-text" class="col-md-3 ">Description</label>
-                                  <textarea class="form-control col-md-3" id="intervention-text"></textarea>
-                                  <div class="input-group col-md-6">
-                                    <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile04">
-                                    <label class="custom-file-label" for="inputGroupFile04">Intervention Banner Image <i class="fa fa-upload" aria-hidden="true"></i></label>
-                                    </div>
                                     
+
+
+
+                                <div class="form-group d-flex">
+                                  <label for="questionnaire-topic" class="col-md-3 ">select Sub Domain</label>
+                                  <select name ="questionnaire"  id ="questionnaire-select" class="form-control col-md-3 "  id="assign-roles">                                               
+                                            <option value="Sub Domain1 " >Select Sub Domain</option>
+                                            <option value=" Sub Domain2">Create </option>
+                                    </select>   
+                                   
+                                </div>
+                               
+                               
+                                <div class="form-group d-flex">
+                                  <label for="screener-name" class="col-md-3 ">Name</label>
+                                  <input type="text" class="  form-control col-md-3" id="screener-name" placeholder="">
+                                   
+                                </div>
+
+                                <div class="form-group d-flex">
+                                    <label for="screener-text" class="col-md-3 ">Mandatory</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">No </label>
                                     </div>
                                 </div>
+
+
                                 <div class="form-group d-flex">
-                                    <label for="intervention-type" class="col-md-3 ">Data Type</label>
+                                    <label for="screener-text" class="col-md-3 ">Result Calculation Type</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Average</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">Total </label>
+                                    </div>
+                                </div>
+                                    
+
+
+
+                                <div class="form-group d-flex">
+                                    <label for="intervention-type" class="col-md-3 ">Topic</label>
                                     <select name="sd-domains"  id="sd-domains-select" class="form-control col-md-3 "
                                                 id="assign-roles">
-                                            <option value="Type1 " >Type1 </option>
+                                            <option value="Type1 " > Select Topic 1 </option>
                                             <option value=" Type2">Type2 </option>
                                         </select>
-                                        <div class="input-group col-md-6">
-                                            <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="inputGroupFile04">
-                                            <label class="custom-file-label" for="inputGroupFile04">Upload Docs <i class="fa fa-upload" aria-hidden="true"></i></label>
-                                            </div>
-                                            
-                                        </div>
+                                        
                                   </div>
+                                
                                   <div class="form-group d-flex">
-                                    <label for="intervention-tag" class="col-md-3 ">Image</label>
-                                    <select name="sd-intervention"  id="sd-intervention-select" class="form-control col-md-3"
-                                       id="assign-roles">
-                                      <option value=" Tag1" >Tag1 </option>
-                                         <option value="Tag2 "> Tag2</option>
-                                     </select>
+                                    <label for="questionnaire-sort-order" class="col-md-3 ">Sort Order</label>
+                                    <input type="text" class="  form-control col-md-3" id="questionnaire-sort-order" placeholder="">
                                   </div>
 
-                                <button type="button" class="btn btn-primary btn-outline-success btn-sm float-right btn-add-domain">Add</button>
+                                  <div class="form-group d-flex">
+                                    <label for="screener-duration" class="col-md-3 ">Duration</label>                                   
+                                    <select name="screener-duration"  id="sscreener-duration-select" class="form-control col-md-3 "
+                                    id="assign-roles">
+                                        <option value="Type1 "> 20 Min </option>
+                                        <option value=" Type2">30 Mins </option>
+                                  </select>
+                                  </div>
+
+                                <button type="button" class="btn btn-primary btn-outline-success btn-sm float-right btn-add-domain">Create</button>
                               </form>
                             </div>
                             

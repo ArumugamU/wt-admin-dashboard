@@ -205,10 +205,30 @@
     border: 1px solid rgb(223, 225, 230);
  
 }
+
 .domain-table tr:hover
 {
+  outline: none;
     background-color: rgb(235, 236, 240); 
 }
+.domain-table tr
+{
+  outline: none;
+}
+
+
+.btn-edit-subdomain {
+background-color: unset; 
+  border: none;  
+  padding: 2px 6px;  
+  font-size: 16px;  
+  cursor: pointer; /* Mouse pointer on hover */
+}
+.btn-edit-subdomain:hover {
+    background-color: rgb(235, 236, 240); 
+}
+
+
     </style>
 
 
@@ -339,12 +359,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr class="content">
                                             <td class="col-sm-2">Stress</th>
                                             <td> </td>
                                             <td> </td>
                                             <td>Activated </td>
-                                            <td><i class="fas fa-edit  ml-5" id="eidt-sub-domain"></i></td>
+                                            <td><button id="edit_content" class="btn-edit-subdomain"><i class="fas fa-edit  ml-5" id="eidt-sub-domain"></i></button></td>
                                         </tr>
                                         
 
@@ -702,6 +722,23 @@ var controllerApp = (function(view, model) {
 })(viewApp, modelApp);
 
 </script>
+
+
+<script>
+  window.onload = function() {
+
+
+let editBtn = document.querySelector('#edit_content');
+let content = document.querySelector('.content');
+
+editBtn.addEventListener('click', () => {
+content.contentEditable = !content.isContentEditable;
+if(content.contentEditable === 'false') {
+  localStorage.setItem('content', content.innerHTML);
+}
+});
+}</script>
+
     <script src="/js/jquery.treeSelection.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

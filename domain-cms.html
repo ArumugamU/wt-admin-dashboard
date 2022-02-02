@@ -74,6 +74,17 @@
 {
     margin:unset;
 }
+
+.btn-edit-domain {
+background-color: unset; 
+  border: none;  
+  padding: 2px 6px;  
+  font-size: 16px;  
+  cursor: pointer; /* Mouse pointer on hover */
+}
+.btn-edit-domain:hover {
+    background-color: rgb(235, 236, 240); 
+}
     </style>
 
 
@@ -196,7 +207,7 @@
                             <div class="table-responsive ">
                                 <table class="table domain-table table-borderless">
                                     <thead>
-                                        <tr class=" ">
+                                        <tr >
                                             <td class="col-sm-2">Domain Name</td>
                                             <td class="col-sm-4">Description </td>
                                             <td class="col-sm-3">Status</td>
@@ -204,11 +215,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr class="content">
                                             <td class="col-sm-2">Stress</th>
                                             <td> </td>
                                             <td>Activated </td>
-                                            <td><i class="fas fa-edit  ml-5" id="eidt-domain"></i></td>
+                                            <td><button id="edit_content" class="btn-edit-domain"><i class="fas fa-edit  ml-5" id="eidt-domain "></i></button></td>
                                         </tr>
                                         
 
@@ -347,6 +358,22 @@
         });
     </script>
 
+<script>
+    window.onload = function() {
+ 
+
+let editBtn = document.querySelector('#edit_content');
+let content = document.querySelector('.content');
+
+editBtn.addEventListener('click', () => {
+	content.contentEditable = !content.isContentEditable;
+  if(content.contentEditable === 'false') {
+  	localStorage.setItem('content', content.innerHTML);
+  }
+});
+}
+</script>
+
     <script src="/js/jquery.treeSelection.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -356,5 +383,6 @@
 
 
 </body>
+
 
 </html>

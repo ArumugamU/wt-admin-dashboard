@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screener</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- FA -->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <link href="/css/jquery.treeSelection.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+
+    <!-- sidebar -->
+
+    <style>
+     .domain-table  tr {
+   /* line-height: 55px;
+   min-height: 55px;
+   height: 55px; */
+}
+
+.domain-table td, .domain-table th {
+    border: none;
+}
+.domain-table > thead td
+{
+    font-size: 12px;
+    text-transform: capitalize;
+
+}
+
+.domain-table td
+{
+    font-size: 14px;
+    text-transform: capitalize;
+
+}
+.btn-outline-success:not(:disabled):not(.disabled):active
+ {
+
+    background-color: #263a5be6;
+    color: #fff;
+}
+
+.btn-outline-success
+{
+    border-color:#263a5be6;
+}
+.btn-add-domain
+{
+    padding: 7px 10px;
+    border-radius: 10px;
+    width: 20%;
+}
+
+.imgMask {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.imgMask-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+}
+.imgg{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#sub-domain-img{
+  position: absolute;
+    width: 202px;
+    height: 200px;
+    top: 0;
+    z-index: -1;
+}
+
+.custom-file-label
+{
+    border: unset;
+}
+
+.intervention-form .custom-file-label i 
+{
+    float: right;
+}
+.custom-file-label::after
+{
+    display: none;
+}
+
+.modal-header .close
+{
+    margin:unset;
+}
+ 
+
+/* Question */
+.accordion {
+	margin-top: 6px; /* Add space above accordion */
+}
+.accordion .card {
+	border-radius: 0;
+	border-width: 1px 0 1px 0;
+}
+.accordion .card:first-child {
+	border-top: none;
+}
+.accordion .card .card-header {
+	background: #fff;
+	padding-top: 4px;
+	padding-bottom: 4px;
+    padding-right: unset;
+    padding-left: unset;
+	border-radius: 0;
+	margin-bottom: -2px;
+	/* font-family: "Roboto", sans-serif; */
+}
+.accordion .card-header:hover {
+	background: #f8f8f8;
+}
+.accordion .card-header h2 a
+{
+    font-size: 12px !important;
+}
+.accordion .card-header h2 span {
+	float: left;
+	margin-top: 10px;
+}
+.accordion .card-header .btn {
+	font-size: 1.04rem;
+	font-weight: 500;
+	width: 100%;
+	text-align: left;
+	position: relative;
+	top: -2px;
+}
+.accordion .card-header i {
+	float: right;
+	font-size: 1.3rem;
+	font-weight: bold;
+	position: relative;
+	top: 5px;
+}
+.accordion .card-header button:hover {
+	color: #23384e;
+}
+.accordion .card-body {
+
+	background: #eaeaea;
+	color: #595959;
+    font-size: 12px;
+
+    background: #ffffff;
+    /* color: #595959; */
+    /* font-size: 12px; */
+    box-shadow: 16px 2px 25px 7px rgb(0 0 0 / 10%);
+    border-radius: 24px;
+    border: 0px solid #fff;
+    margin: 15px 10px;
+}
+.accordion .highlight {
+	color: #fff;
+	background: #202d3c !important;
+}
+
+.card
+{
+    border:none;
+}
+
+/* Question */
+
+.content1:focus-visible ,
+.content2:focus-visible
+{
+    outline: none;
+}
+
+.btn-edit-screener {
+background-color: unset; 
+  border: none;  
+  padding: 2px 6px;  
+  font-size: 16px;  
+  cursor: pointer;  
+}
+.btn-edit-screener:hover {
+    /* background-color: rgb(235, 236, 240);  */
+}
+
+main
+{
+    height: auto !important;
+    max-height:inherit!important;
+}
+
+@media (min-width: 576px)
+{
+.modal-dialog {
+    max-width: 800px;
+    margin: 1.75rem auto;
+}
+}
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <section>
+
+        <!-- HEADER -->
+        <div class="sticky-header">
+            <header class="pt-3 mb-3 bg-light border-bottom ">
+                <div class="container-fluid">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between ">
+                        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none logo">
+                            <img src="/images/wtlogo.png" alt="" srcset="">
+                        </a>
+
+                        <div class="  text-end ms-auto">
+
+                            <ul class=" text-small" aria-labelledby="dropdownUser1" style="list-style-type: none;">
+                                <li> <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;
+                                    <a class=" text-decoration-none list user-name" href="#"><b>John</b></a>
+                                </li>
+                                <li><a class=" text-decoration-none user-role" href="#"><small>Admin</small></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <!-- HEADER -->
+
+
+
+        <div class="page-wrapper chiller-theme toggled">
+            <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+                <i class="fas fa-bars"></i>
+            </a>
+
+            <!-- sidebar-wrapper  -->
+
+            <nav id="sidebar" class="sidebar-wrapper">
+                <div class="sidebar-content">
+
+                    <div class="sidebar-menu">
+                        <ul>
+
+                            <li class=" ">
+                                <a href="#">
+
+                                    <span> User Management</span>
+
+                                </a>
+
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+
+                                    <span>Content Management</span>
+
+                                </a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Domain
+
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Sub Domain</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Tags</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Intervention</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Intervention Plan</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Questionnaire</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Screener</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+                    <!-- sidebar-menu  -->
+                </div>
+                <!-- sidebar-content  -->
+
+            </nav>
+
+            <!-- sidebar-wrapper  -->
+
+
+            <main class="page-content">
+                <div class="container-fluid">
+
+                    <div class="row ">
+
+                        <div class="col-md-5 mb-3">
+                            <p class="float-start mb-0"><strong> Screener 1 </strong></p>
+                            <div class="content1">
+                                <p class="mb-0"> <small></small> Stress</p>
+                                <p class="mb-0"> * <span>Yes</span><span> No</span></p>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-5   mb-3 text-right">
+                            <button id="edit_content" class="btn-edit-screener"><i class="fas fa-edit"></i></button> <span  class=" "><small><b>Status: </b>Approved</small></span>
+                        <div class="content2">                        
+                          <div class="average d-flex justify-content-end">
+                             <p class="mb-0 mr-3">Average </p> 
+                              <span class="mb-0">Total</span>
+                         </div>                        
+                          <p class="mb-0"><i class="fas fa-clock"></i> 20 Min</p>
+                        </div>
+                        </div>
+
+
+                                
+                    <!--  Questions  -->
+                        <div class="col-lg-10 ">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="clearfix mb-0">
+                                            <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" readonly>Topic 1 <i class="material-icons">add</i></a>									
+                                        </h2>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Vestibulum id metus ac nisl bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet sagittis. In tincidunt orci sit amet elementum vestibulum.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h2 class="mb-0">
+                                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Topic 2 <i class="material-icons" readonly>add</i></a>
+                                        </h2>
+                                    </div>
+                                  
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                        <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</div>
+                                    </div>
+                               
+                                </div>
+                                
+                                <div class="card">
+                                   
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Topic 3 <i class="material-icons" readonly>add</i></a>                     
+                                    </h2>
+                                </div>
+                               
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <b class="card-title">Card title</b>
+                                                <b class="card-subtitle mb-2 text-muted">Card subtitle</b>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="card-link">Card link</a>
+                                                <a href="#" class="card-link">Another link</a>
+                                            </div>
+                                            </div>                                         
+                                
+                                </div>                               
+
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFour">
+                                    <h2 class="mb-0">
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Topic 4 <i class="material-icons" readonly>add</i></a>                               
+                                    </h2>
+                                </div>
+                              
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                   
+                                    <div class="card">
+                                        <div class="card-body ml-3">
+                                          <h6 class="card-title">I feel difficult to fall asleep at night</h6>
+                                          <p class="card-subtitle mb-2 text-muted">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">Always</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">Sometimes</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                                <label class="form-check-label" for="inlineRadio3">Never</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                                                <label class="form-check-label" for="inlineRadio4">Often</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                                                <label class="form-check-label" for="inlineRadio5">Rarely</label>
+                                              </div>
+                                              
+                                          </p>                                                                                                                                      
+                                        </div>
+                                      </div>
+
+                                      <div class="card">
+                                        <div class="card-body ml-3">
+                                          <h6 class="card-title">I feel difficult to fall asleep at night</h6>
+                                          <p class="card-subtitle mb-2 text-muted">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">Always</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">Sometimes</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                                <label class="form-check-label" for="inlineRadio3">Never</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                                                <label class="form-check-label" for="inlineRadio4">Often</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                                                <label class="form-check-label" for="inlineRadio5">Rarely</label>
+                                              </div>
+                                              
+                                          </p>                                                                                                                                      
+                                        </div>
+                                      </div>
+
+                                      <div class="card">
+                                        <div class="card-body ml-3">
+                                          <h6 class="card-title">I feel difficult to fall asleep at night</h6>
+                                          <p class="card-subtitle mb-2 text-muted">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">Always</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">Sometimes</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                                <label class="form-check-label" for="inlineRadio3">Never</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                                                <label class="form-check-label" for="inlineRadio4">Often</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                                                <label class="form-check-label" for="inlineRadio5">Rarely</label>
+                                              </div>
+                                              
+                                          </p>                                                                                                                                      
+                                        </div>
+                                      </div>
+
+                                      <div class="card">
+                                        <div class="card-body ml-3">
+                                          <h6 class="card-title">I feel difficult to fall asleep at night</h6>
+                                          <p class="card-subtitle mb-2 text-muted">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">Always</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">Sometimes</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                                <label class="form-check-label" for="inlineRadio3">Never</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                                                <label class="form-check-label" for="inlineRadio4">Often</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                                                <label class="form-check-label" for="inlineRadio5">Rarely</label>
+                                              </div>
+                                              
+                                          </p>                                                                                                                                      
+                                        </div>
+                                      </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- Questions -->
+
+                    <div class="col-md-10 d-flex ">
+                        <div class="col-md-6 ">
+                            <button type="button" class="btn btn-primary btn-outline-success  mt-3 mb-3 col-md-7">Screener Edit History</button>
+                            <!-- <button type="button" class="btn btn-primary btn-outline-success btn-sm  mt-3 mb-3 ml-5 col-md-3">Comments</button> -->
+                        </div>
+                        <div class="col-md-6 ">
+                            <button type="button" class="btn btn-primary btn-outline-success mt-3 mb-3 col-md-5 ">Comments</button>
+
+                        </div>
+                        
+                    </div>
+
+
+
+                           <!-- Table -->
+                           <div class="col-md-10">
+                            <div class="table-responsive ">
+                                <table class="table domain-table table-bordered">
+                                    <thead>
+                                        <tr class=" ">
+                                            <td class="">Action</td>
+                                            <td class="">Time  </td>
+                                            <td class="">By</td>
+                                             
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td > </th>
+                                            <td> </td>
+                                            <td> -</td>
+                                             
+                                                                                          
+                                        </tr>
+                                       
+                                        
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Table -->
+
+                    </div>
+                    <!-- row -->
+
+
+
+
+
+ 
+
+               
+
+                </div>
+                <!-- Container fluid -->
+            </main>
+            <!-- page-content" -->
+
+
+
+        </div>
+    </section>
+
+
+    <script>
+        jQuery(function ($) {
+
+            $(".sidebar-dropdown > a").click(function () {
+                $(".sidebar-submenu").slideUp(200);
+                if (
+                    $(this)
+                        .parent()
+                        .hasClass("active")
+                ) {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .parent()
+                        .removeClass("active");
+                } else {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .next(".sidebar-submenu")
+                        .slideDown(200);
+                    $(this)
+                        .parent()
+                        .addClass("active");
+                }
+            });
+
+            $("#close-sidebar").click(function () {
+                $(".page-wrapper").removeClass("toggled");
+            });
+            $("#show-sidebar").click(function () {
+                $(".page-wrapper").addClass("toggled");
+            });
+
+
+
+
+        });
+
+    </script>
+
+
+    <script>
+        $('#enableselect').click(function () {
+            $('#mainform input[name=animal]')
+                .attr("disabled", true);
+
+            $('#animal-select')
+                .attr('disabled', false)
+                .attr('name', 'animal');
+
+            $('#enableselect').hide();
+            return false;
+        });
+    </script>
+
+<!-- Question Accordion-->
+
+<script>
+    $(document).ready(function(){
+        // Add minus icon for collapse element which is open by default
+        $(".collapse.show").each(function(){
+            $(this).siblings(".card-header").find(".btn i").html("remove");
+            $(this).prev(".card-header").addClass("highlight");
+        });
+        
+        // Toggle plus minus icon on show hide of collapse element
+        $(".collapse").on('show.bs.collapse', function(){
+            $(this).parent().find(".card-header .btn i").html("remove");
+        }).on('hide.bs.collapse', function(){
+            $(this).parent().find(".card-header .btn i").html("add");
+        });
+        
+        // Highlight open collapsed element 
+        $(".card-header .btn").click(function(){
+            $(".card-header").not($(this).parents()).removeClass("highlight");
+            $(this).parents(".card-header").toggleClass("highlight");
+        });
+    });
+    </script>
+
+<!-- Question Accordion -->
+ 
+
+<!-- Edit -->
+<script>
+      
+    window.onload = function() {
+ let editBtn = document.querySelector('#edit_content');
+ let content1 = document.querySelector('.content1');
+ let content2 = document.querySelector('.content2');
+ 
+ editBtn.addEventListener('click', () => {
+
+     content1.contentEditable = !content1.isContentEditable;
+     content2.contentEditable = !content2.isContentEditable;
+
+   if(content1.contentEditable === 'false') {
+       localStorage.setItem('content1', content1.innerHTML);
+   }
+
+   if(content2.contentEditable === 'false') {
+       localStorage.setItem('content2', content2.innerHTML);
+   }
+
+ });
+ }
+  
+ 
+ </script>
+
+<!-- Edit -->
+
+    <script src="/js/jquery.treeSelection.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+</body>
+
+</html>

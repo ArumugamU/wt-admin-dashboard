@@ -24,11 +24,26 @@
     <!-- sidebar -->
 
     <style>
-     .domain-table  tr {
-   line-height: 55px;
-   min-height: 55px;
-   height: 55px;
+     
+     .tag-table  tr {
+   line-height: 15px;
+   /* min-height: 55px;
+   height: 55px; */
 }
+
+.tag-table tr:hover
+{
+  /* outline: none; */
+    background-color: rgb(235, 236, 240); 
+}
+.tag-table tr
+{
+  outline: none;
+  /* border: 1px solid #263a5be6; */
+}
+
+
+
 .btn-outline-success:not(:disabled):not(.disabled):active
  {
 
@@ -65,6 +80,19 @@
     text-transform: capitalize;
 
 }
+
+
+.btn-edit-tags {
+background-color: unset; 
+  border: none;  
+  padding: 2px 6px;  
+  font-size: 16px;  
+  cursor: pointer;  
+}
+.btn-edit-tags:hover {
+    background-color: rgb(235, 236, 240); 
+}
+
     </style>
 
 
@@ -195,11 +223,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr class="content">
                                             <td class="col-sm-2">Mindfulness</th>
                                             <td> </td>
                                             <td>Activated </td>
-                                            <td><i class="fas fa-edit  ml-5" id="eidt-domain"></i></td>
+                                            <td><button id="edit_content" class="btn-edit-tags"><i class="fas fa-edit  ml-5" id="eidt-domain"></i></button></td>
                                         </tr>
                                         
 
@@ -337,6 +365,21 @@
         });
     </script>
 
+<script>
+     window.onload = function() {
+ let editBtn = document.querySelector('#edit_content');
+ let content = document.querySelector('.content');
+ 
+ editBtn.addEventListener('click', () => {
+     content.contentEditable = !content.isContentEditable;
+   if(content.contentEditable === 'false') {
+       localStorage.setItem('content', content.innerHTML);
+   }
+ });
+ }
+  
+ 
+</script>
     <script src="/js/jquery.treeSelection.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
